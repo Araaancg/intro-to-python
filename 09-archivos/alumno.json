@@ -1,0 +1,7 @@
+{
+  "nombre": "Ana Garc\u00eda",
+  "edad": 22,
+  "carrera": "Ingenier\u00eda",
+  "notas": [8.5, 9.0, 7.5, 8.0],
+  "activo": true
+}

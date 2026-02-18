@@ -9,4 +9,4 @@ def validarNombre(nombre: str):
     if not nombre.isalpha():
         raise NombreError("El nombre que introduzcas solo puede contener letras")
     
-    return nombre
+    return nombre  

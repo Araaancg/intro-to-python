@@ -10,3 +10,11 @@ def validarNombre(nombre: str):
         raise NombreError("El nombre que introduzcas solo puede contener letras")
     
     return nombre  
+
+def validarFila(fila):
+    filaValida = False
+    if fila <= 3 and fila >= 1:
+        filaValida = True
+        return filaValida,fila
+    if not filaValida:
+        raise CeldaError("El numero introducido esta fuera de rango")

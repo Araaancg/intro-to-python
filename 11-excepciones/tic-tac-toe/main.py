@@ -1,4 +1,5 @@
 from inputs import *
+import sys
 
 # TRES EN RAYA MULTIJUGADOR - 2 JUGADORES
 
@@ -20,7 +21,7 @@ def mostrarTablero(tablero):
         if i < len(tablero) - 1:
             print("---|---|---")
 
-def comprobarGanador(tablero):
+def comprobarGanador(tablero: list[list]) -> str:
     ganador = ""
 
     # comprobar la fila
@@ -42,8 +43,8 @@ def comprobarGanador(tablero):
     
     return ganador 
 
-jugador1 = pedirNombre(1)
-jugador2 = pedirNombre(2)
+jugador1 = sys.argv[1]
+jugador2 = sys.argv[2]
 
 tablero = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
 turno = jugador1
@@ -54,6 +55,7 @@ fichas = {
 
 hayGanador = False
 empate = False
+ganador = ""
 
 while not hayGanador and not empate: 
     mostrarTablero(tablero)
@@ -111,5 +113,13 @@ while not hayGanador and not empate:
     #     turno = jugador2
     # else:
     #     turno = jugador1
+
+# METER PARTIDA EN CSV
+# Info
+# Numero de partida, Ganador
+
+with open("./historial-partidas.csv", encoding="utf-8", mode="a") as file:
+    nombreGanador = jugador1 if ganador == "X" else jugador2
+    file.write(f"\n{1}, {nombreGanador}")
     
 mostrarTablero(tablero)
